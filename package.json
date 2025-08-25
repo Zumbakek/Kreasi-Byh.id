@@ -1,0 +1,24 @@
+{
+  "name": "kreasi.byh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "concurrently \"npx tailwindcss -i ./css/input.css -o ./css/output.css --watch\" \"nodemon server.js\"",
+    "build": "npx tailwindcss -i ./css/input.css -o ./css/output.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "express": "^5.1.0",
+    "tailwindcss": "^4.1.12"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "nodemon": "^2.0.22"
+  }
+}
