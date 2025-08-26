@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 /* animasi hero section */
 @keyframes bounce-custom {
   0%, 20%, 50%, 80%, 100% {
