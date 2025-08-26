@@ -19,38 +19,16 @@ hamburger.addEventListener('click', function () {
     navMenu.classList.toggle('hidden');
 });
 
-// // Categori
-// const filterButtons = document.querySelectorAll(".filter-btn");
-// const templateItems = document.querySelectorAll(".template-item");
-
-// filterButtons.forEach(btn => {
-//     btn.addEventListener("click", () => {
-//         // Reset tombol aktif
-//         filterButtons.forEach(b => {
-//             b.classList.remove("bg-pink-400", "text-white");
-//             b.classList.add("bg-white", "text-gray-700");
-//         });
-
-//         // Aktifkan tombol yg diklik
-//         btn.classList.remove("bg-white", "text-gray-700");
-//         btn.classList.add("bg-pink-400", "text-white");
-
-//         const filter = btn.getAttribute("data-filter");
-
-//         // Filter item
-//         templateItems.forEach(item => {
-//             if (filter === "all" || item.classList.contains(filter)) {
-//                 item.style.display = "block";
-//                 item.classList.add("fade-in");
-//             } else {
-//                 item.style.display = "none";
-//                 item.classList.remove("fade-in");
-//             }
-//         });
-//     });
-// });
+// klik di luar hamburger
+window.addEventListener('click', function (e) {
+    if (e.target !== hamburger && e.target !== navMenu) {
+        hamburger.classList.remove('hamburger-active');
+        navMenu.classList.add('hidden');
+    }
+});
 
 
+// Categories Filter
 document.addEventListener("DOMContentLoaded", () => {
     const templateList = document.getElementById("template-list");
     const filterButtons = document.querySelectorAll(".filter-btn");
@@ -100,18 +78,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         templates.forEach((item, index) => {
             const div = document.createElement("div");
-            div.className = `
-        template-item ${item.category} relative rounded-lg shadow cursor-pointer 
- bg-white opacity-0 translate-y-4 flex flex-col items-center
-      `;
+            div.className = `template-item ${item.category} relative rounded-lg shadow cursor-pointer 
+                            bg-white opacity-0 translate-y-4 flex flex-col items-center`;
 
-            div.innerHTML = `
-        <img src="${item.image}" alt="${item.title}" class="max-w-full h-auto object-contain rounded-t-lg">>
-
-        <div class="absolute bottom-0 left-0 right-0 bg-pink-600/80 text-white text-center py-1 text-xs font-medium">
+            div.innerHTML = `<img src="${item.image}" alt="${item.title}" class="max-w-full h-auto object-contain rounded-t-lg">>
+            <div class="absolute bottom-0 left-0 right-0 bg-pink-600/80 text-white text-center py-1 text-xs font-medium">
                 ${item.category}
-        </div>
-      `;
+            </div>`;
 
             templateList.appendChild(div);
 

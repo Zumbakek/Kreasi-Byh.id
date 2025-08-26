@@ -379,6 +379,9 @@
   .cursor-pointer {
     cursor: pointer;
   }
+  .scroll-pt-10 {
+    scroll-padding-top: calc(var(--spacing) * 10);
+  }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -418,6 +421,9 @@
   }
   .self-end {
     align-self: flex-end;
+  }
+  .scroll-smooth {
+    scroll-behavior: smooth;
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
@@ -953,6 +959,20 @@
     }
   }
 }
+@keyframes bounce-custom {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+.animate-bounce-custom {
+  animation: bounce-custom 2s infinite;
+}
 .navbar-fixed {
   position: fixed;
   z-index: 9999;
@@ -1030,7 +1050,7 @@
 .template-item img {
   height: calc(var(--spacing) * 60);
   width: 100%;
-  object-fit: object-contain;
+  object-fit: contain;
   transition-property: transform, translate, scale, rotate;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));

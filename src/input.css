@@ -1,6 +1,23 @@
 @import "tailwindcss";
 
 
+/* animasi hero section */
+@keyframes bounce-custom {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-bounce-custom {
+  animation: bounce-custom 2s infinite;
+}
+
 .navbar-fixed {
     @apply fixed z-[9999] w-full bg-white/10 backdrop-blur-sm;
     box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
@@ -56,7 +73,7 @@
 }
 
 .template-item img {
-  @apply w-full h-60 object-cover transition-transform duration-500;
+  @apply w-full h-60 object-contain transition-transform duration-500;
 }
 
 .template-item:hover img {
