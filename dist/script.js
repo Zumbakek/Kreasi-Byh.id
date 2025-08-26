@@ -81,7 +81,7 @@ function renderTemplates(templates) {
             div.className = `template-item ${item.category} relative rounded-lg shadow cursor-pointer 
                             bg-white opacity-0 translate-y-4 flex flex-col items-center transition-all duration-700 ease-out`;
 
-            div.innerHTML = `<img src="${item.image}" alt="${item.title}" class="lazy max-w-full h-auto object-contain rounded-t-lg">
+            div.innerHTML = `<img src="${item.image}" alt="${item.title}" class="max-w-full h-auto object-contain rounded-t-lg">
             <div class="absolute bottom-0 left-0 right-0 bg-pink-600/80 text-white text-center py-1 text-xs font-medium">
                 ${item.category}
             </div>`;
@@ -93,34 +93,6 @@ function renderTemplates(templates) {
                 div.classList.remove("opacity-0", "translate-y-4");
                 div.classList.add("opacity-100", "translate-y-0");
             }, 250 * index);
-        });
-    }
-});
-
-// lazy load images
-document.addEventListener("DOMContentLoaded", () => {
-    const lazyImages = document.querySelectorAll("img.lazy");
-
-    if ("IntersectionObserver" in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.removeAttribute("loading");
-                    observer.unobserve(img);
-                }
-            });
-        });
-
-        lazyImages.forEach(img => {
-            imageObserver.observe(img);
-        });
-    } else {
-        // Fallback untuk browser yang tidak mendukung IntersectionObserver
-        lazyImages.forEach(img => {
-            img.src = img.dataset.src;
-            img.removeAttribute("loading");
         });
     }
 });
