@@ -92,7 +92,7 @@ function renderTemplates(templates) {
             setTimeout(() => {
                 div.classList.remove("opacity-0", "translate-y-4");
                 div.classList.add("opacity-100", "translate-y-0");
-            }, 250 * index);
+            }, 100 * index);
         });
     }
 });
